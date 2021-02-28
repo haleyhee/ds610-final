@@ -5,7 +5,7 @@ class RatingsCount(MRJob):
     def steps(self):
         return [MRStep(mapper=self.mapper_get_ratings,
                       reducer=self.reducer_count_ratings), 
-               MRStep (reduce=self.reducer_sorted_output)]
+               MRStep (reducer=self.reducer_sorted_output)]
     
     def mapper_get_ratings(self, _, inline):
         (userID, movieID, rating, timestamp) = line.split('\t')
